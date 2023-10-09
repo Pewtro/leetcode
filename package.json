@@ -1,0 +1,36 @@
+{
+  "name": "leetcode",
+  "version": "1.0.0",
+  "description": "Repo to host leetcode solutions",
+  "author": "Putro",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "@putstack/eslint-config-typescript": "1.1.1",
+    "@putstack/prettier-config": "1.2.2",
+    "@types/node": "20.8.2",
+    "concurrently": "8.2.1",
+    "husky": "8.0.3",
+    "lint-staged": "14.0.1",
+    "typescript": "5.2.2",
+    "vitest": "0.34.6"
+  },
+  "scripts": {
+    "lint": "eslint --format stylish --max-warnings 0 --cache .",
+    "lint:fix": "pnpm lint --fix",
+    "prettier": "prettier . --write .",
+    "prepare": "husky install",
+    "stylecheck": "prettier --check .",
+    "test": "vitest run",
+    "test:ci": "concurrently \"pnpm:lint\" \"pnpm:typecheck\" \"pnpm:stylecheck\" ",
+    "typecheck": "tsc --noEmit"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,mjs,cjs,jsx,md,mdx,yml,yaml}": [
+      "prettier --write"
+    ],
+    "*.{ts,tsx,js,jsx,mjs,cjs}": [
+      "pnpm --silent lint:fix"
+    ]
+  }
+}
