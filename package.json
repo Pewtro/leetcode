@@ -11,7 +11,7 @@
   "devDependencies": {
     "@putstack/eslint-config-typescript": "1.1.2",
     "@putstack/prettier-config": "1.2.2",
-    "@types/node": "20.8.7",
+    "@types/node": "20.8.8",
     "concurrently": "8.2.2",
     "husky": "8.0.3",
     "lint-staged": "15.0.2",
@@ -25,6 +25,7 @@
     "prepare": "husky install",
     "stylecheck": "prettier --check .",
     "test": "vitest run",
+    "watch": "vitest watch",
     "test:ci": "concurrently \"pnpm:lint\" \"pnpm:typecheck\" \"pnpm:stylecheck\" ",
     "typecheck": "tsc --noEmit"
   },
