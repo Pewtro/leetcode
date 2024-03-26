@@ -9,16 +9,16 @@
     "node": ">=18.12.0 <20 || >=20.8.0"
   },
   "devDependencies": {
-    "@putstack/eslint-config-typescript": "2.2.0",
+    "@putstack/eslint-config-typescript": "2.4.0",
     "@putstack/prettier-config": "1.4.0",
-    "@types/node": "20.11.16",
-    "concurrently": "8.2.2",
-    "eslint": ">=8.56.0 <9.0.0",
-    "husky": "9.0.10",
-    "lint-staged": "15.2.1",
-    "prettier": "3.2.4",
-    "typescript": "5.3.3",
-    "vitest": "1.2.2"
+    "@types/node": "20.11.30",
+    "eslint": ">=8.57.0",
+    "husky": "9.0.11",
+    "lint-staged": "15.2.2",
+    "npm-run-all2": "6.1.2",
+    "prettier": "3.2.5",
+    "typescript": "5.4.3",
+    "vitest": "1.4.0"
   },
   "scripts": {
     "lint": "eslint --format stylish --max-warnings 0 --cache .",
@@ -28,7 +28,7 @@
     "stylecheck": "prettier --check .",
     "test": "vitest run",
     "watch": "vitest watch",
-    "test:ci": "concurrently \"pnpm:lint\" \"pnpm:typecheck\" \"pnpm:stylecheck\" ",
+    "test:ci": "npm-run-all -l -p lint typecheck stylecheck",
     "typecheck": "tsc --noEmit"
   },
   "lint-staged": {

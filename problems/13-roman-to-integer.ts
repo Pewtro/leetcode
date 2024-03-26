@@ -59,8 +59,13 @@ function romanToInt(s: string): number {
   romanToIntegerMap.set('M', 1000);
 
   let sum = 0;
+  let skipNext = false;
 
   for (let index = 0; index < s.length; index++) {
+    if (skipNext) {
+      skipNext = false;
+      continue;
+    }
     const current = romanToIntegerMap.get(s[index]);
     const next = romanToIntegerMap.get(s[index + 1]);
     if (!current) {
@@ -75,7 +80,7 @@ function romanToInt(s: string): number {
     }
     if (current < next) {
       sum += next - current;
-      index++;
+      skipNext = true;
     } else {
       sum += current;
     }
